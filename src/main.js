@@ -10,8 +10,14 @@ const filterStrengthsElement = document.getElementById('filter-all-strengths');
 const filterProjectsElement = document.getElementById('filter-all-projects');
 const filterInterestsElement = document.getElementById('filter-all-interests');
 
-// Card Elements Display
+// Card Elements
+// Display
 const allCards = document.querySelectorAll('.small-boxes');
+// Overlay and clickable cards
+const explainedCards = document.querySelectorAll('.small-boxes.explained');
+const overlay = document.getElementById('overlay');
+const overlayContent = document.getElementById('overlay-content');
+const closeBtn = document.getElementById('close-btn');
 
 const fixedCardIdList = [...allCards].map(element => element.firstElementChild.getAttribute('id'));
 // this converts a NodeListOf<Element> to an array (spread syntax)
@@ -61,6 +67,28 @@ filterProjectsElement.addEventListener('click', () => {
 
 filterInterestsElement.addEventListener('click', () => {
     toggleInterestFilter();
+})
+
+// add event listeners to all boxes
+explainedCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const message = card.getAttribute('data-message') || 'No message set.';
+        overlayContent.textContent = message;
+        overlay.classList.add('show');
+        document.body.classList.add('no-scroll');
+    });
+});
+
+closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('show');
+    document.body.classList.remove('no-scroll');
+})
+
+overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+        overlay.classList.remove('show');
+        document.body.classList.remove('no-scroll');
+    }
 })
 
 /**
