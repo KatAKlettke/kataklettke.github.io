@@ -57,8 +57,7 @@ Think of it like this:
 #### Step 1: Create Translation Files
 
 Create a new file: `src/translations.js`
-```
-javascript
+```javascript
 /**
 * Translation objects for all supported languages
 * Structure: translations[languageCode][translationKey]
@@ -260,8 +259,7 @@ javascript
 **Remove `index-de.html` and `index-sv.html` entirely.**
 
 Update `index.html`:
-```
-html
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -356,8 +354,7 @@ html
 #### Step 3: Update main.js
 
 Add this at the beginning of your main.js:
-```
-javascript
+```javascript
 // Language switching functionality
 document.querySelectorAll('#lang-picker a').forEach(link => {
     link.addEventListener('click', (e) => {

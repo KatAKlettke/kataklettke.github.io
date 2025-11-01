@@ -138,13 +138,42 @@ header {
     top: -15px;
     margin-left: 25vw;
     border-radius: 15px;
-    width: fit-content;
     display: flex;
     justify-content: center;
     gap: 75px;
-    padding: 25px 25px 15px 25px;
-    z-index: 25;
+    width: fit-content;
+    padding: 15px 25px 15px 25px;
+}
+
+.lang-button {
+    /* Reset button styles */
+    background: none;
+    border: none;
+
+    cursor: pointer;
+
+    /* Layout */
+    padding: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    /* Visual feedback */
+    border-radius: 4px;
+    transition: background-color 0.2s;
     font-family: "Lexend Thin", sans-serif;
+}
+
+
+.lang-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Active/selected language */
+.lang-button.active {
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Content area */
@@ -161,7 +190,9 @@ main {
             ". side box10 box11 box12 ."
             ". side box13 box14 box15 ."
             ". side box16 box17 box18 ."
-            ". side box19 box20 box21 .";
+            ". side box19 box20 box21 ."
+            ". side box22 box23 box24 ."
+            ". side box25 box26 box27 .";
     gap: 30px 20px;
     font-family: "Lexend Thin", sans-serif;
 }
@@ -259,6 +290,30 @@ main {
     grid-area: box21;
 }
 
+#box22 {
+    grid-area: box22;
+}
+
+#box23 {
+    grid-area: box23;
+}
+
+#box24 {
+    grid-area: box24;
+}
+
+#box25 {
+    grid-area: box25;
+}
+
+#box26 {
+    grid-area: box26;
+}
+
+#box27 {
+    grid-area: box27;
+}
+
 /* Content Boxes */
 .small-boxes {
     width: 225px;
@@ -311,6 +366,7 @@ main {
 }
 
 .sidebar ul li {
+    font-size: 0.75rem;
     list-style: none;
     margin-bottom: 15px;
 }
@@ -628,6 +684,14 @@ footer > p {
     #lang-picker {
         border: 3px solid var(--dark-four);
         background-color: var(--dark-two);
+    }
+
+    .lang-button {
+        color: var(--dark-five);
+    }
+
+    .lang-button:hover {
+        background-color: var(--dark-four);
     }
 
     .sidebar {

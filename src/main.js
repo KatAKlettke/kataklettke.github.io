@@ -33,6 +33,15 @@ localStorage.setItem('projectIsShown', 'true');
 localStorage.setItem('interestIsShown', 'true');
 
 // Event Listeners
+// Language switching functionality
+document.querySelectorAll('.lang-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const lang = button.getAttribute('data-lang');
+        i18n.setLanguage(lang);
+        updateFilterLabelsForLanguage(); // Update filter labels after language change
+    });
+});
+
 /**
  * Sets Event listener for each theme radio button and calls storeTheme(themeID) on click.
  */
@@ -122,6 +131,35 @@ function setTheme(theme) {
         themeElement.classList.add('blue');
         themeElement.setAttribute('style', blueBody);
     }
+}
+
+// to be refactored later, Simpler version that works for language change with old code
+function updateFilterLabelsForLanguage() {
+    const allShown = localStorage.getItem('allIsShown') === 'true';
+    const skillShown = localStorage.getItem('skillIsShown') === 'true';
+    const strengthShown = localStorage.getItem('strengthIsShown') === 'true';
+    const projectShown = localStorage.getItem('projectIsShown') === 'true';
+    const interestShown = localStorage.getItem('interestIsShown') === 'true';
+
+    // Update "Show All" / "Showing All"
+    document.querySelector('#filter-all-text > span').textContent =
+        allShown ? i18n.getTranslationFor('showingAll') : i18n.getTranslationFor('showAll');
+
+    // Update Skills filter
+    document.querySelector('#filter-all-skills > span').textContent =
+        skillShown ? i18n.getTranslationFor('hideSkills') : i18n.getTranslationFor('showSkills');
+
+    // Update Strengths filter
+    document.querySelector('#filter-all-strengths > span').textContent =
+        strengthShown ? i18n.getTranslationFor('hideStrengths') : i18n.getTranslationFor('showStrengths');
+
+    // Update Projects filter
+    document.querySelector('#filter-all-projects > span').textContent =
+        projectShown ? i18n.getTranslationFor('hideProjects') : i18n.getTranslationFor('showProjects');
+
+    // Update Interests filter
+    document.querySelector('#filter-all-interests > span').textContent =
+        interestShown ? i18n.getTranslationFor('hideInterests') : i18n.getTranslationFor('showInterests');
 }
 
 // Filter Toggles
@@ -370,7 +408,7 @@ function determineVisibleCards() {
  * Placement in the grid is determined by id number.
  * @param idList List of strings
  */
-const assignRandomSpotToCard = (idList) => {
+function assignRandomSpotToCard (idList) {
     let cardNumberToDistribute = idList.length;
     for (let i = 1; i < (cardNumberToDistribute + 1); i++) {
         let randomCard= Math.floor(Math.random() * idList.length);
@@ -386,6 +424,8 @@ const onStartup = function () {
     updateFilters();
 }
 
-document.onload = onStartup();
-
-
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onStartup);
+} else {
+    onStartup();
+}
