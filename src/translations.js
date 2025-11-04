@@ -49,6 +49,8 @@ const translations = {
         skillFrenchDesc: "1/5",
         skillJira: "Jira",
         skillJiraDesc: "3/5",
+        skillXPath: "XPath",
+        skillXPathDesc: "2/5",
 
         // Card content - Strengths
         strengthPatterns: "Pattern Recognition",
@@ -129,6 +131,8 @@ const translations = {
         skillFrenchDesc: "1/5",
         skillJira: "JIRA",
         skillJiraDesc: "3/5",
+        skillXPath: "XPath",
+        skillXPathDesc: "2/5",
 
         // Card content - Strengths
         strengthPatterns: "Mustererkennung",
