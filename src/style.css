@@ -59,6 +59,7 @@ body {
 }
 
 #container-content {
+    flex: 1;
     max-width: 1405px;
     margin: 0 auto;
 }
