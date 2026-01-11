@@ -255,7 +255,7 @@ function toggleInterestFilter() {
  * Changes filter text to "Hide Skills" and removes all inline styles from cards whose id starts with "skill-"
  */
 function activateSkills() {
-    document.querySelector('#filter-all-skills span').innerHTML = 'Hide Skills';
+    document.querySelector('#filter-all-skills span').innerHTML = i18n.getTranslationFor('hideSkills');
     skillList.forEach((skill) => {
         skill.parentElement.removeAttribute('style');
     });
@@ -265,7 +265,7 @@ function activateSkills() {
  * Changes filter text to "Show Skills" and adds "display: none;" inline style to cards whose id starts with "skill-"
  */
 function deactivateSkills() {
-    document.querySelector('#filter-all-skills > span').innerHTML = 'Show Skills';
+    document.querySelector('#filter-all-skills > span').innerHTML = i18n.getTranslationFor('showSkills');
     skillList.forEach((skill) => {
         skill.parentElement.setAttribute('style', 'display:none;');
     });
@@ -275,7 +275,7 @@ function deactivateSkills() {
  * Changes filter text to "Hide Strengths" and removes all inline styles from cards whose id starts with "strength-"
  */
 function activateStrengths() {
-    document.querySelector('#filter-all-strengths > span').innerHTML = 'Hide Strengths';
+    document.querySelector('#filter-all-strengths > span').innerHTML = i18n.getTranslationFor('hideStrengths');
     strengthList.forEach((strength) => {
         strength.parentElement.removeAttribute('style');
     })
@@ -285,7 +285,7 @@ function activateStrengths() {
  * Changes filter text to "Show Strengths" and adds "display:none;" inline style to cards whose id starts with "strength-"
  */
 function deactivateStrengths() {
-    document.querySelector('#filter-all-strengths > span').innerHTML = 'Show Strengths';
+    document.querySelector('#filter-all-strengths > span').innerHTML = i18n.getTranslationFor('showStrengths');
     strengthList.forEach((strength) => {
         strength.parentElement.setAttribute('style', 'display:none;');
     });
@@ -295,7 +295,7 @@ function deactivateStrengths() {
  * Changes filter text to "Hide Projects" and removes all inline styles from cards whose id starts with "project-"
  */
 function activateProjects() {
-    document.querySelector('#filter-all-projects > span').innerHTML = 'Hide Projects';
+    document.querySelector('#filter-all-projects > span').innerHTML = i18n.getTranslationFor('hideProjects');
     projectList.forEach((project) => {
         project.parentElement.removeAttribute('style');
     });
@@ -305,7 +305,7 @@ function activateProjects() {
  * Changes filter text to "Show Projects" and adds "display:none;" inline style to cards whose id starts with "project-"
  */
 function deactivateProjects() {
-    document.querySelector('#filter-all-projects > span').innerHTML = 'Show Projects';
+    document.querySelector('#filter-all-projects > span').innerHTML = i18n.getTranslationFor('showProjects');
     projectList.forEach((project) => {
        project.parentElement.setAttribute('style', 'display:none;');
     })
@@ -315,7 +315,7 @@ function deactivateProjects() {
  * Changes filter text to "Hide Interests" and removes all inline styles from cards whose id starts with "interest-"
  */
 function activateInterests() {
-    document.querySelector('#filter-all-interests > span').innerHTML = 'Hide Interests';
+    document.querySelector('#filter-all-interests > span').innerHTML = i18n.getTranslationFor('hideInterests');
     interestList.forEach((interest) => {
         interest.parentElement.removeAttribute('style');
     })
@@ -325,7 +325,7 @@ function activateInterests() {
  * Changes filter text to "Show Interests" and adds "display:none;" inline style to cards whose id starts with "interest-"
  */
 function deactivateInterests() {
-    document.querySelector('#filter-all-interests > span').innerHTML = 'Show Interests';
+    document.querySelector('#filter-all-interests > span').innerHTML = i18n.getTranslationFor('showInterests');
     interestList.forEach((interest) => {
         interest.parentElement.setAttribute('style', 'display:none;');
     })
@@ -338,7 +338,8 @@ function updateFilters() {
     if (localStorage.getItem('allIsShown') === 'true') {
         document.getElementById('open-eye').removeAttribute('style');
         document.getElementById('hidden-eye').setAttribute('style', 'display:none;');
-        document.querySelector('#filter-all-text > span').innerHTML = 'Showing All';
+
+        document.querySelector('#filter-all-text > span').innerHTML = i18n.getTranslationFor('showingAll');
 
         activateSkills();
         activateStrengths();
@@ -349,7 +350,7 @@ function updateFilters() {
     else {
         document.getElementById('open-eye').setAttribute('style', 'display:none;');
         document.getElementById('hidden-eye').removeAttribute('style');
-        document.querySelector('#filter-all-text > span').innerHTML = 'Show All';
+        document.querySelector('#filter-all-text > span').innerHTML = i18n.getTranslationFor('showAll');
 
         if (localStorage.getItem('skillIsShown') === 'true') {
             activateSkills();

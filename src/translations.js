@@ -160,7 +160,7 @@ const translations = {
         interestMedievalLit: "Faszination: Mittelalterliche europäische Literatur",
         interestMedievalLitDesc: "König Artus, das Rolandslied, die Nibelungen und wie sie sich durch Europa verbreiteten.",
         interestWorldbuilding: "Faszination: Fantasy-Weltenbau",
-        interestWorldbuildingDesc: "In den Fußstapfen von Tolkien untewrwegs :)",
+        interestWorldbuildingDesc: "In den Fußstapfen von Tolkien unterwegs :)",
 
         // Footer
         footerContact: "kontakt @ <url dieser Webseite>",
